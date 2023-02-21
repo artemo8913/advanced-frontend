@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
-import { useTheme } from "./theme/useTheme";
-import { className } from "./healper/className";
+import { useTheme } from "app/providers/ThemeProvider/index";
+import { MainPageAsync } from "pages/MainPage";
+import { AboutPageAsync } from "pages/AboutPage";
+import { className } from "shared/lib/className";
 
 export function App() {
   const { theme, toggleTheme } = useTheme();
