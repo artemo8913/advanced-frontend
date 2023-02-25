@@ -19,7 +19,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         loader: "css-loader",
         options: {
           modules: {
-            localIdentName: isDev ? "[path][name]__[local]--[hash:base64:8]" : "[hash:base64:8]",
+            localIdentName: isDev
+              ? "[path][name]__[local]--[hash:base64:8]"
+              : "[hash:base64:8]",
             auto: (resourcePath: string) => resourcePath.includes(".module."),
           },
         },
@@ -28,5 +30,17 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       "sass-loader",
     ],
   };
-  return [typescriptLoader, cssLoader];
+  const svgLoader = {
+    test: /\.svg$/i,
+    use: ["@svgr/webpack"],
+  };
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
+  return [typescriptLoader, cssLoader, svgLoader, fileLoader];
 }
