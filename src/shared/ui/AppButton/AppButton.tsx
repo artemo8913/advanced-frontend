@@ -12,20 +12,9 @@ export enum AppButtonTheme {
 }
 
 export function AppButton(props: PropsWithChildren<AppButtonProps>) {
-  const {
-    additionalClassName,
-    children,
-    theme = AppButtonTheme.CLEAR,
-    ...otherProps
-  } = props;
+  const { additionalClassName, children, theme = AppButtonTheme.CLEAR, ...otherProps } = props;
   return (
-    <button
-      className={createClassName(css.AppButton, {}, [
-        additionalClassName,
-        css[theme],
-      ])}
-      {...otherProps}
-    >
+    <button className={createClassName(css.AppButton, {}, [additionalClassName, css[theme]])} {...otherProps}>
       {children}
     </button>
   );

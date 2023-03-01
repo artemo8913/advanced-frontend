@@ -1,3 +1,7 @@
-export default function MainPage(){
-    return <div>Главная страница</div>
+import { useTranslation } from "react-i18next";
+
+export default function MainPage() {
+  const { t } = useTranslation();
+
+  return <div>{t("MAIN PAGE")}</div>;
 }
