@@ -19,9 +19,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         loader: "css-loader",
         options: {
           modules: {
-            localIdentName: isDev
-              ? "[path][name]__[local]--[hash:base64:8]"
-              : "[hash:base64:8]",
+            localIdentName: isDev ? "[path][name]__[local]--[hash:base64:8]" : "[hash:base64:8]",
             auto: (resourcePath: string) => resourcePath.includes(".module."),
           },
         },
