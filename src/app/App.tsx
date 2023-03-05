@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { useTheme } from "app/providers/ThemeProvider/index";
 import { createClassName } from "shared/lib/createClassName";
 import { Navbar } from "widgets/Navbar";

@@ -4,6 +4,20 @@ import { BuildOptions } from "./types/config";
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const isDev = options.isDev;
+  const babelLoader = {
+    rules: [
+      {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-typescript"],
+          },
+        },
+      },
+    ],
+  };
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -40,5 +54,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       },
     ],
   };
-  return [typescriptLoader, cssLoader, svgLoader, fileLoader];
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
