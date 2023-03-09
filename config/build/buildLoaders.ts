@@ -13,6 +13,16 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-typescript"],
+            plugins: [
+              [
+                "i18next-extract",
+                {
+                  locales: ["ru", "en"],
+                  "keyAsDefaultValue": true
+                },
+              ],
+              // […] your other plugins […]
+            ],
           },
         },
       },
