@@ -1,8 +1,8 @@
-import webpack from "webpack";
+import type webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { BuildOptions } from "./types/config";
+import { type BuildOptions } from "./types/config";
 
-export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
   const isDev = options.isDev;
   const babelLoader = {
     rules: [
@@ -18,20 +18,20 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                 "i18next-extract",
                 {
                   locales: ["ru", "en"],
-                  "keyAsDefaultValue": true
-                },
-              ],
+                  keyAsDefaultValue: true
+                }
+              ]
               // […] your other plugins […]
-            ],
-          },
-        },
-      },
-    ],
+            ]
+          }
+        }
+      }
+    ]
   };
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
-    exclude: /node_modules/,
+    exclude: /node_modules/
   };
   const cssLoader = {
     test: /\.s[ac]ss$/i,
@@ -44,25 +44,25 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         options: {
           modules: {
             localIdentName: isDev ? "[path][name]__[local]--[hash:base64:8]" : "[hash:base64:8]",
-            auto: (resourcePath: string) => resourcePath.includes(".module."),
-          },
-        },
+            auto: (resourcePath: string) => resourcePath.includes(".module.")
+          }
+        }
       },
       // Compiles Sass to CSS
-      "sass-loader",
-    ],
+      "sass-loader"
+    ]
   };
   const svgLoader = {
     test: /\.svg$/i,
-    use: ["@svgr/webpack"],
+    use: ["@svgr/webpack"]
   };
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
       {
-        loader: "file-loader",
-      },
-    ],
+        loader: "file-loader"
+      }
+    ]
   };
   return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }

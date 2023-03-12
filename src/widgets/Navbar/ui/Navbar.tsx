@@ -11,11 +11,7 @@ export function Navbar({ additionalClassName }: NavbarProps) {
   return (
     <div className={createClassName(css.Navbar, {}, [additionalClassName])}>
       <div className={createClassName(css.links)}>
-        <AppLink
-          additionalClassName={css.mainLink}
-          theme={AppLinkTheme.PRIMARY}
-          to={"/"}
-        >
+        <AppLink additionalClassName={css.mainLink} theme={AppLinkTheme.PRIMARY} to={"/"}>
           {t("MAIN PAGE")}
         </AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to={"/about"}>

@@ -5,7 +5,7 @@ export function createClassName(primaryClassName: string, mods: Mods = {}, addit
     primaryClassName,
     ...additional.filter(Boolean),
     Object.entries(mods)
-      .filter(([mod, condition]) => Boolean(condition))
-      .map(([mod, condition]) => mod),
+      .filter(([_, condition]) => Boolean(condition))
+      .map(([mod, _]) => mod),
   ].join(" ");
 }

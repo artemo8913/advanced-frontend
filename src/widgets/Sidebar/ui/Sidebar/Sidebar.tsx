@@ -1,4 +1,4 @@
-import React from "react";
+
 import css from "./Sidebar.module.scss";
 import { createClassName } from "shared/lib/createClassName";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
