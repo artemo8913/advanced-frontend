@@ -1,7 +1,7 @@
-@import "./reset.scss";
-@import "./variables/global.scss";
-@import "./theme/dark.scss";
-@import "./theme/normal.scss";
+@import "./reset";
+@import "./variables/global";
+@import "./theme/dark";
+@import "./theme/normal";
 
 .app {
   background-color: var(--color-bg);
@@ -10,10 +10,11 @@
   min-height: 100vh;
 }
 
-.content-page{
+.content-page {
   display: flex;
 }
-.page-wrapper{
+
+.page-wrapper {
   flex-grow: 1;
   padding: 20px;
 }

@@ -17,7 +17,8 @@ module.exports = {
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "i18next"
   ],
   "rules": {
     "indent": ["error", 2],
@@ -35,6 +36,7 @@ module.exports = {
     ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading":"warn"
+    "react/jsx-props-no-spreading":"warn",
+    "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["to"] }]
   }
 };
