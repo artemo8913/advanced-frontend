@@ -1,7 +1,8 @@
 {
   "TEST": "Тест",
-  "TRANSLATE":"Перевод",
-  "LANGUAGE":"Русский язык",
-  "ABOUT PAGE":"О комании",
-  "MAIN PAGE":"Главная страница"
+  "TRANSLATE": "Перевод",
+  "LANGUAGE": "Русский язык",
+  "ABOUT PAGE": "О комании",
+  "MAIN PAGE": "Главная страница",
+  "TOGGLE": "Переключить"
 }
